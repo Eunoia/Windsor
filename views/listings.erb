@@ -1,0 +1,21 @@
+<%=
+	results = {}
+	results["type"] = "FeatureCollection"
+	results["features"] = []
+	@listings.each do |listing|
+		feature = {}
+		feature["type"] = "Feature"
+		feature["geometry"] = {}
+		feature["geometry"]["type"] = "Point"
+		feature["geometry"]["coordinates"] = [ listing[:lng], listing[:lat] ]
+		feature["properties"] = {}
+		feature["properties"]["id"] = listing["id"]
+		feature["properties"]["price"] = listing["price"]
+		feature["properties"]["street"] = listing["street"]
+		feature["properties"]["bedrooms"] = listing["bedrooms"]
+		feature["properties"]["bathrooms"] = listing["bathrooms"]
+		feature["properties"]["sq_ft"] = listing["sq_ft"]
+		results["features"] << feature
+	end
+	results.to_json
+%>
