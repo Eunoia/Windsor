@@ -1,8 +1,11 @@
 # Windsor
 
-Windsor acts as a front-end to csv files, exposing a GeoJSON feed that can be consumed by services like <mapbox.com> 
+[Windsor](http://windsor.herokuapp.com/) acts as a front-end to csv files, exposing a GeoJSON feed that can be consumed by services like [MapBox](http://mapbox.com).
 
 ## Installation
+
+Clone the [Windsor repo](https://github.com/Eunoia/windsor) by running:
+`git clone git@github.com:Eunoia/Windsor.git`
 
 To install Windsor, run `bundle install` in the root directory. While a default csv file can be found at `listings.csv`, you will want to substitute your own.
 
@@ -31,7 +34,7 @@ You can filter based on these query parameters:
 
 All parameters are optional, and min/max fields are inclusive. The results are valid GeoJSON.
 
-###Pagination
+### Pagination
 Should you need to paginate, Windsor comes out of the box with cursor based pagination.  
 
 Pagination requires two parameters:
@@ -55,14 +58,14 @@ Tests are Minitest, and very simple.
 ## Example
 
 ```
-curl http://localhost:9393/listings?min_price=278803&min_bath=2&max_bed=4&min_bed=2&since=40&count=10
+curl http://windsor.herokuapp.com/listings?min_price=278803&min_bath=2&max_bed=4&min_bed=2&since=40&count=10
 ```
 
 This will return 10 listings with an id greater than 40, that have between 2-4 bedrooms, 2-4 bathrooms, and cost more than $278,803.
 
 ## History
 
-This application if for exposing the GB of xls about real estate I have on S3.
+This application is for exposing the GB of xls about real estate I have on S3.
 
 ## Contributing
 1. Fork it!

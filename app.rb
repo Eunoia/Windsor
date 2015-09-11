@@ -14,6 +14,10 @@ class App < Sinatra::Base
     content_type :json
   end
 
+  get '/' do
+    send_file "public/index.html", :type => :html
+  end
+
   get '/listings'  do
     param :min_price, Integer, default: -1
     param :max_price, Integer, default: Float::INFINITY
